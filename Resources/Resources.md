@@ -8,6 +8,11 @@ https://devfolio.co/ideas/using-the-graph-for-defi-analytics
 
 ## General
 
+https://consensys.net/developers/guides-to-ethereum-development/ultimate-ethereum-hackathon-survival-guide/
+
+https://www.stateofthedapps.com/
+
+
 https://www.crypto-world.gr/altcoins/the-4-core-requirements-of-a-true-dex-komodo-atomic-swaps-exchange/
 
 
@@ -42,3 +47,30 @@ https://github.com/upright-vc/libraswaps/blob/master/AtomicSwap.sol
 https://awesomeopensource.com/projects/dapp
 
 https://github.com/ConsenSys/ethereum-developer-tools-list/blob/master/EcosystemResources.md
+
+
+https://hackernoon.com/a-beginners-guide-to-ipfs-20673fedd3f
+
+https://medium.com/@YondonFu/off-chain-computation-solutions-for-ethereum-developers-507b23355b17
+
+https://github.com/tooploox/ipfs-eth-database
+
+https://z.cash/technology/zksnarks/
+
+
+
+https://blog.cosmos.network/defi-hackathon-the-top-7-projects-changing-the-game-in-finance-e66cb9af1c7f
+
+https://blog.0xproject.com/22-ideas-to-explore-with-0x-4d551c10dd4e
+
+https://www.valuecoders.com/blog/technology-and-apps/40-best-app-startup-ideas/
+
+https://itnext.io/build-a-simple-ethereum-interplanetary-file-system-ipfs-react-js-dapp-23ff4914ce4e
+
+https://myhsts.org/tutorial-learn-how-to-run-ethereum-auction-dapp-with-some-solidity-tips.php
+
+https://www.ccn.com/elon-musk-best-ethereum-ideas-vitalik-buterin/
+
+https://arctouch.com/blog/blockchain-hackathon/
+
+https://blockonomi.com/ethereum-projects-to-watch-2020/
