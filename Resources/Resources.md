@@ -24,15 +24,21 @@ https://money-legos.studydefi.com/#/quickstart
 ### TBTC
 
 https://tbtc.network/developers/
+
 https://docs.keep.network/tbtc/solidity/
+
 https://tbtc.network/developers/how-to-integrate-tbtc-into-your-defi-dapp/
+
 https://github.com/keep-network/tbtc/blob/master/docs/introduction-to-tbtc.md
 
 ### instadapp
 
 https://instadapp.io/
+
 https://blog.instadapp.io/dsa-launch/
+
 https://docs.instadapp.io/installation/
+
 https://github.com/InstaDApp/dsa-contracts/tree/master/
 
 ### Raiden Network
@@ -42,13 +48,17 @@ https://github.com/raiden-network/raiden-contracts
 ### HTLC
 
 https://liquality.io/blog/hash-time-locked-contracts-htlcs-explained/
+
 https://hackernoon.com/what-are-hashed-timelock-contracts-htlcs-application-in-lightning-network-payment-channels-14437eeb9345
+
 https://github.com/kaleido-io/token-sample-htlc/blob/master/contracts/HashedTimelock.sol
 
 ### Atomic Swaps
 
 https://arxiv.org/pdf/1801.09515.pdf
+
 https://liquality.io/blog/atomic-swaps-explained/
+
 https://github.com/upright-vc/libraswaps/blob/master/AtomicSwap.sol
 
 ### Github Resources
