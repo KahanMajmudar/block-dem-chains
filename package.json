@@ -22,18 +22,20 @@
     "SmartContracts"
   ],
   "author": "",
-  "contributors": [{
-    "name": "Kahan Majmudar"
-  },
-  {
-    "name": "Harshil Darji"
-  },
-  {
-    "name": "Nisarg Sheth"
-  },
-  {
-    "name": "Kairav Pithadia"
-  }],
+  "contributors": [
+    {
+      "name": "Kahan Majmudar"
+    },
+    {
+      "name": "Harshil Darji"
+    },
+    {
+      "name": "Nisarg Sheth"
+    },
+    {
+      "name": "Kairav Pithadia"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/KahanMajmudar/block-dem-chains/issues"
@@ -44,6 +46,7 @@
     "@openzeppelin/contracts": "^3.0.1",
     "bip32": "^2.0.5",
     "bip39": "^3.0.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "ipfs-http-client": "^44.1.0",
