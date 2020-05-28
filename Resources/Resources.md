@@ -21,6 +21,20 @@ https://www.crypto-world.gr/altcoins/the-4-core-requirements-of-a-true-dex-komod
 
 https://money-legos.studydefi.com/#/quickstart
 
+
+### Github of DApps
+
+https://github.com/svitekpavel/decentralized-ebay
+
+https://github.com/AdrianClv/ethereum-ipfs
+
+https://github.com/insights-network/instar
+
+https://github.com/SapienNetwork/
+
+https://github.com/indorseio
+
+
 ### TBTC
 
 https://tbtc.network/developers/
@@ -69,15 +83,27 @@ https://github.com/ConsenSys/ethereum-developer-tools-list/blob/master/Ecosystem
 
 ### IPFS
 
+https://github.com/INFURA/tutorials/wiki/Introduction-to-IPFS
+
+https://infura.io/docs/ipfs/
+
+https://github.com/ipfs/js-ipfs/tree/master/docs/core-api
+
 https://hackernoon.com/a-beginners-guide-to-ipfs-20673fedd3f
 
 https://medium.com/@YondonFu/off-chain-computation-solutions-for-ethereum-developers-507b23355b17
 
 https://github.com/tooploox/ipfs-eth-database
 
+https://www.devteam.space/blog/how-to-a-create-a-blockchain-based-social-media-platform-for-bloggers/
+
 https://z.cash/technology/zksnarks/
 
 ### Articles
+
+https://medium.com/@sebinatx/building-a-fully-decentralized-user-profile-dapp-on-ethereum-and-ipfs-e55afac35718
+
+https://www.tooploox.com/blog/using-ipfs-with-ethereum-for-data-storage
 
 https://blog.cosmos.network/defi-hackathon-the-top-7-projects-changing-the-game-in-finance-e66cb9af1c7f
 
@@ -94,3 +120,5 @@ https://www.ccn.com/elon-musk-best-ethereum-ideas-vitalik-buterin/
 https://arctouch.com/blog/blockchain-hackathon/
 
 https://blockonomi.com/ethereum-projects-to-watch-2020/
+
+https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369
