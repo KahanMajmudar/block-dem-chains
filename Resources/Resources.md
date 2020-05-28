@@ -1,8 +1,11 @@
 ## Devfolio Project Ideas
 
 https://medium.com/@spencernoon/ethdenver-hackathon-ideas-578504d5a134
+
 https://devfolio.co/ideas/dapps-on-pooltogether
+
 https://devfolio.co/ideas/defi-for-tbtc
+
 https://devfolio.co/ideas/using-the-graph-for-defi-analytics
 
 
@@ -18,36 +21,43 @@ https://www.crypto-world.gr/altcoins/the-4-core-requirements-of-a-true-dex-komod
 
 https://money-legos.studydefi.com/#/quickstart
 
+### TBTC
 
 https://tbtc.network/developers/
 https://docs.keep.network/tbtc/solidity/
 https://tbtc.network/developers/how-to-integrate-tbtc-into-your-defi-dapp/
 https://github.com/keep-network/tbtc/blob/master/docs/introduction-to-tbtc.md
 
+### instadapp
 
 https://instadapp.io/
 https://blog.instadapp.io/dsa-launch/
 https://docs.instadapp.io/installation/
 https://github.com/InstaDApp/dsa-contracts/tree/master/
 
+### Raiden Network
 
 https://github.com/raiden-network/raiden-contracts
 
+### HTLC
 
 https://liquality.io/blog/hash-time-locked-contracts-htlcs-explained/
 https://hackernoon.com/what-are-hashed-timelock-contracts-htlcs-application-in-lightning-network-payment-channels-14437eeb9345
 https://github.com/kaleido-io/token-sample-htlc/blob/master/contracts/HashedTimelock.sol
 
+### Atomic Swaps
 
 https://arxiv.org/pdf/1801.09515.pdf
 https://liquality.io/blog/atomic-swaps-explained/
 https://github.com/upright-vc/libraswaps/blob/master/AtomicSwap.sol
 
+### Github Resources
 
 https://awesomeopensource.com/projects/dapp
 
 https://github.com/ConsenSys/ethereum-developer-tools-list/blob/master/EcosystemResources.md
 
+### IPFS
 
 https://hackernoon.com/a-beginners-guide-to-ipfs-20673fedd3f
 
@@ -57,7 +67,7 @@ https://github.com/tooploox/ipfs-eth-database
 
 https://z.cash/technology/zksnarks/
 
-
+### Articles
 
 https://blog.cosmos.network/defi-hackathon-the-top-7-projects-changing-the-game-in-finance-e66cb9af1c7f
 
