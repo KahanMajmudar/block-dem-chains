@@ -17,7 +17,10 @@ class Server {
         this.app.use(json())
         this.app.use(urlencoded({ extended: true }))
 		this.app.use(helmet())
-		this.app.get('/', (_req, res) => Client.handleResponse({res, data: 'Yay!!, it\'s working'}))
+		this.app.get('/', (_req, res) => Client.handleResponse({
+			res: res,
+			data: 'Yay!!, it\'s working'
+		}))
 		// this.app.use( (err, req, res, next) => {
 		// 	const isOperationalError = this.error.handleError({
 		// 		res: res,
@@ -25,9 +28,9 @@ class Server {
 		// 		data: {
 		// 			type: err.commonType
 		// 		}
-		// 	});
+		// 	})
 		// 	if (!isOperationalError) {
-		// 		next(err);
+		// 		next(err)
 		// 	}
 		// })
 		// process.on('uncaughtException', err => {
@@ -41,11 +44,11 @@ class Server {
 
 	mongodb(){
 
-		mongoose.set('useCreateIndex', true);
-		mongoose.set('useFindAndModify', false);
+		mongoose.set('useCreateIndex', true)
+		mongoose.set('useFindAndModify', false)
 		mongoose.set('useNewUrlParser', true)
 		mongoose.set('useUnifiedTopology', true)
-		mongoose.connect('mongodb://localhost/universal_wallet')
+		mongoose.connect('mongodb://localhost/block_dem_chains')
 			.then(() => console.log('MongoDB: Connection established succesfully!!'))
 			.catch(err => console.error(`MongoDB: ${err.message}`))
 	}

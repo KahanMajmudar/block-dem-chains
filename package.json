@@ -52,6 +52,7 @@
     "ipfs-http-client": "^44.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.16",
+    "nodemon": "^2.0.4",
     "web3": "^1.2.8"
   },
   "devDependencies": {
