@@ -2,6 +2,8 @@ import express, { json, urlencoded } from 'express'
 import helmet from 'helmet'
 import mongoose from 'mongoose'
 import { Client } from './services'
+import wallet_routes from './api/hdwallet/wallet_routes'
+import user_routes from './api/users/user_routes'
 
 class Server {
 
@@ -17,10 +19,12 @@ class Server {
         this.app.use(json())
         this.app.use(urlencoded({ extended: true }))
 		this.app.use(helmet())
-		this.app.get('/', (_req, res) => Client.handleResponse({
+		this.app.get('/', (req, res) => Client.handleResponse({
 			res: res,
 			data: 'Yay!!, it\'s working'
 		}))
+		this.app.use('/wallet', wallet_routes)
+		this.app.use('/users', user_routes)
 		// this.app.use( (err, req, res, next) => {
 		// 	const isOperationalError = this.error.handleError({
 		// 		res: res,
