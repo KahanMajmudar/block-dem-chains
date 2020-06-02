@@ -3,9 +3,9 @@ export class Client {
     static handleResponse = ({
         res, statusCode = 200, data = {}
     }) => {
-        res.status(statusCode).send({
+        res.status(statusCode).send(
             data
-        });
+        );
     };
 
     static handleError = ({
