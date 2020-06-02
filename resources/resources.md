@@ -95,11 +95,15 @@ https://github.com/ConsenSys/ethereum-developer-tools-list/blob/master/Ecosystem
 
 ### IPFS
 
+https://proto.school/#/tutorials
+
 https://github.com/INFURA/tutorials/wiki/Introduction-to-IPFS
 
 https://infura.io/docs/ipfs/
 
 https://github.com/ipfs/js-ipfs/tree/master/docs/core-api
+
+https://dnslink.io/
 
 https://www.npmjs.com/package/ipfs-mini
 
@@ -114,6 +118,16 @@ https://github.com/tooploox/ipfs-eth-database
 https://www.devteam.space/blog/how-to-a-create-a-blockchain-based-social-media-platform-for-bloggers/
 
 https://z.cash/technology/zksnarks/
+
+https://cid.ipfs.io/
+
+### Frontend
+
+https://docs.dapphero.io/
+
+https://webflow.com/
+
+https://bootstrapstudio.io/
 
 ### Articles
 
@@ -142,3 +156,8 @@ https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369
 https://itnext.io/build-a-simple-ethereum-interplanetary-file-system-ipfs-react-js-dapp-23ff4914ce4e
 
 https://blog.fleek.co/posts/fully-decentralized-apps-with-ens
+
+
+### Bounties
+
+https://gitcoin.co/
