@@ -16,4 +16,12 @@ export class Client {
         });
     };
 
+    static handleHeaderResponse = ({
+        res, headerName, headerData, statusCode = 200, data = {}
+    }) => {
+        res.header(headerName, headerData).status(statusCode).send(
+            data
+        );
+    };
+
 }

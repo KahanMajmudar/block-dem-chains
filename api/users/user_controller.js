@@ -2,6 +2,8 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 import _ from 'lodash'
 import { User, validate } from './user_model'
+import { MailController } from '../mail/mail_controller'
+import { Auth } from '../../middlewares/auth'
 
 
 export class UserController {
@@ -41,7 +43,7 @@ export class UserController {
 
         let User = await this.User.findOne({email: userObject.email});
         if(User){
-            return ('User already exist!!')
+            throw new Error('User already exist!!')
         }
 
         this.user = new this.User(_.pick(userObject, ['name', 'email', 'password']));
@@ -50,6 +52,17 @@ export class UserController {
         this.user.password = await bcrypt.hash(this.user.password, salt);
         await this.user.save();
         const result = _.pick(this.user, ['_id','name', 'email'])
+
+        const payload = _.pick(this.user, ['_id'])
+        const token = Auth.genAuthToken(payload);
+        const data = {
+            name: this.user.name,
+            email: this.user.email,
+            token: token
+        }
+
+        const mailer = new MailController()
+        await mailer.verificationMailSender(data)
 
         return result
 

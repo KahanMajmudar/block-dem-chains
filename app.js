@@ -2,8 +2,10 @@ import express, { json, urlencoded } from 'express'
 import helmet from 'helmet'
 import mongoose from 'mongoose'
 import { Client } from './services'
+import auth_routes from './middlewares/middleware_routes'
 import wallet_routes from './api/hdwallet/wallet_routes'
 import user_routes from './api/users/user_routes'
+import mail_routes from './api/mail/mail_routes'
 
 class Server {
 
@@ -23,8 +25,10 @@ class Server {
 			res: res,
 			data: 'Yay!!, it\'s working'
 		}))
+		this.app.use('/auth', auth_routes)
 		this.app.use('/wallet', wallet_routes)
 		this.app.use('/users', user_routes)
+		this.app.use('/mail', mail_routes)
 		// this.app.use( (err, req, res, next) => {
 		// 	const isOperationalError = this.error.handleError({
 		// 		res: res,

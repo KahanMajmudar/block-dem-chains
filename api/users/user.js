@@ -46,6 +46,7 @@ export class User {
             const result = await this.controller.createUser(req.body)
             Client.handleResponse({
                 res: res,
+                statusCode: 201,
                 data: result
             })
         } catch (error) {
