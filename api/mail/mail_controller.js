@@ -1,10 +1,11 @@
-import jwt from 'jsonwebtoken'
 import nodemailer from 'nodemailer'
 import Handlebars from 'handlebars'
 import { promises as fs } from 'fs';
 import path from 'path'
 import _  from 'lodash'
 import { User } from '../users/user_model'
+import { Auth } from '../../middlewares/auth'
+import { Client } from '../../services'
 
 
 
@@ -41,16 +42,18 @@ export class MailController {
                 url: url
             })
 
-
             this.transporter.sendMail({
                 to: email,
                 from: 'wallet.test@mail.com',
                 subject: 'Confirm Mail',
                 html: updated_template
-        })
+            })
 
         } catch (error) {
-            console.log(error);
+            Client.handleError({
+                res: res,
+                err: error
+            })
         }
     }
 
@@ -58,10 +61,14 @@ export class MailController {
 
         try {
 
-            const user = jwt.verify(req.params.token, 'SecretKey');
+            const user = Auth.verifyAuthToken(req.params.token)
             const user_ID = user._id;
             const found_user = await this.User.findById(user_ID);
-            if(!found_user) return res.status(400).send('Verification not successfull!!');
+            if(!found_user) Client.handleResponse({
+                res: res,
+                statusCode: 400,
+                data: 'Verification not successfull!!'
+            })
 
             await this.User.findByIdAndUpdate(user_ID, {
                 $set: { isVerified: true }
@@ -70,8 +77,10 @@ export class MailController {
             res.redirect('http://localhost:3000/');
 
         } catch (error) {
-            console.log(error);
-            res.status(500).send(error);
+            Client.handleError({
+                res: res,
+                err: error
+            })
         }
     }
 
