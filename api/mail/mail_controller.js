@@ -44,16 +44,13 @@ export class MailController {
 
             this.transporter.sendMail({
                 to: email,
-                from: 'wallet.test@mail.com',
+                from: 'platform.test@mail.com',
                 subject: 'Confirm Mail',
                 html: updated_template
             })
 
         } catch (error) {
-            Client.handleError({
-                res: res,
-                err: error
-            })
+            throw error
         }
     }
 
