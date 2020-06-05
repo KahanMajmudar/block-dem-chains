@@ -63,7 +63,7 @@ export class MailController {
             const found_user = await this.User.findById(user_ID);
             if(!found_user) Client.handleResponse({
                 res: res,
-                statusCode: 400,
+                statusCode: 401,
                 data: 'Verification not successfull!!'
             })
 

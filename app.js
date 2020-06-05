@@ -6,7 +6,7 @@ import auth_routes from './middlewares/middleware_routes'
 import wallet_routes from './api/hdwallet/wallet_routes'
 import user_routes from './api/users/user_routes'
 import mail_routes from './api/mail/mail_routes'
-const cors = require('cors')
+import cors from 'cors'
 
 class Server {
 
@@ -22,6 +22,7 @@ class Server {
         this.app.use(json())
         this.app.use(urlencoded({ extended: true }))
 		this.app.use(helmet())
+		this.app.use(cors())
 		this.app.get('/', (req, res) => Client.handleResponse({
 			res: res,
 			data: 'Yay!!, it\'s working'
@@ -64,5 +65,4 @@ class Server {
 }
 
 const app = express()
-app.use(cors())
 new Server(process.env.PORT || 3000, app)
