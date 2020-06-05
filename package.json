@@ -47,6 +47,7 @@
     "bcryptjs": "^2.4.3",
     "bip32": "^2.0.5",
     "bip39": "^3.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ethereumjs-tx": "^2.1.2",
     "ethereumjs-util": "^7.0.2",

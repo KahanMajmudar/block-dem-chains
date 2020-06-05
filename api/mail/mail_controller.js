@@ -17,8 +17,8 @@ export class MailController {
             host: "smtp.mailtrap.io",
             port: 2525,
             auth: {
-                user: "e4bddf076f94ee",
-                pass: "b3692275fe58c9"
+                user: "0bf22400ae4d53",
+                pass: "b5edff579d843e"
             }
         });
 
