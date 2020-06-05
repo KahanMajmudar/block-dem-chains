@@ -19,6 +19,7 @@ export class Client {
     static handleHeaderResponse = ({
         res, headerName, headerData, statusCode = 200, data = {}
     }) => {
+        res.setHeader('Access-Control-Expose-Headers', headerName)
         res.header(headerName, headerData).status(statusCode).send(
             data
         );
