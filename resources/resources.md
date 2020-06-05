@@ -121,6 +121,14 @@ https://z.cash/technology/zksnarks/
 
 https://cid.ipfs.io/
 
+https://www.reddit.com/r/ipfs/comments/apoue6/help_understanding_links_in_ipfs/
+
+### IPNS
+
+https://docs.ipfs.io/concepts/ipns/
+
+https://discuss.ipfs.io/t/accessing-all-my-growing-application-data-under-one-hash/3743
+
 ### Frontend
 
 https://docs.dapphero.io/
@@ -141,8 +149,6 @@ https://blog.0xproject.com/22-ideas-to-explore-with-0x-4d551c10dd4e
 
 https://www.valuecoders.com/blog/technology-and-apps/40-best-app-startup-ideas/
 
-https://itnext.io/build-a-simple-ethereum-interplanetary-file-system-ipfs-react-js-dapp-23ff4914ce4e
-
 https://myhsts.org/tutorial-learn-how-to-run-ethereum-auction-dapp-with-some-solidity-tips.php
 
 https://www.ccn.com/elon-musk-best-ethereum-ideas-vitalik-buterin/
@@ -155,8 +161,13 @@ https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369
 
 https://itnext.io/build-a-simple-ethereum-interplanetary-file-system-ipfs-react-js-dapp-23ff4914ce4e
 
+https://medium.com/better-programming/how-to-get-started-with-ipfs-and-node-fa04baec6b3a
+
 https://blog.fleek.co/posts/fully-decentralized-apps-with-ens
 
+https://www.reddit.com/r/ipfs/comments/6pql5y/jsipfs_examples_and_tutorials/
+
+https://ethereum.stackexchange.com/questions/4531/how-to-add-a-file-to-ipfs-using-the-api
 
 ### Bounties
 
