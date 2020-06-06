@@ -12,7 +12,10 @@ export class AuthController {
                 res: res,
                 headerName: 'x-auth-token',
                 headerData: result,
-                data: 'Login Successfull!!'
+                data: {
+                    loginStatus: true,
+                    message: 'Login Successful'
+                }
             })
         } catch (error) {
             Client.handleError({
@@ -30,7 +33,10 @@ export class AuthController {
             if(!token) Client.handleResponse({
                 res: res,
                 statusCode: 401,
-                data: 'Token not Provided!!'
+                data: {
+                    loginStatus: false,
+                    message: 'Token not provided'
+                }
             })
 
             const user = Auth.verifyAuthToken(token)
@@ -38,7 +44,10 @@ export class AuthController {
             if(!user.isAdmin) Client.handleResponse({
                 res: res,
                 statusCode: 403,
-                data: 'Forbidden!!'
+                data: {
+                    loginStatus: false,
+                    message: 'Forbidden'
+                }
             })
             next()
 
@@ -58,14 +67,20 @@ export class AuthController {
             if(!token) Client.handleResponse({
                 res: res,
                 statusCode: 401,
-                data: 'Token not Provided!!'
+                data: {
+                    loginStatus: false,
+                    message: 'Token not provided'
+                }
             })
             const user = Auth.verifyAuthToken(token)
 
             if(!user.isVerified) Client.handleResponse({
                 res: res,
                 statusCode: 403,
-                data: 'User not verified'
+                data: {
+                    loginStatus: false,
+                    message: 'User unverified'
+                }
             })
             next()
 

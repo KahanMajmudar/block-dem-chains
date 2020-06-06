@@ -64,14 +64,16 @@ export class MailController {
             if(!found_user) Client.handleResponse({
                 res: res,
                 statusCode: 401,
-                data: 'Verification not successfull!!'
+                data: {
+                    message: 'Verification not successfull'
+                }
             })
 
             await this.User.findByIdAndUpdate(user_ID, {
                 $set: { isVerified: true }
             }, { new: true })
 
-            res.redirect('http://localhost:3000/');
+            res.redirect('http://localhost:4200/auth/login');
 
         } catch (error) {
             Client.handleError({
