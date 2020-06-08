@@ -17,8 +17,8 @@ export class MailController {
             host: "smtp.mailtrap.io",
             port: 2525,
             auth: {
-                user: "0bf22400ae4d53",
-                pass: "b5edff579d843e"
+                user: "e4bddf076f94ee",
+                pass: "b3692275fe58c9"
             }
         });
 
@@ -61,7 +61,7 @@ export class MailController {
             const user = Auth.verifyAuthToken(req.params.token)
             const user_ID = user._id;
             const found_user = await this.User.findById(user_ID);
-            if(!found_user) Client.handleResponse({
+            if(!found_user) return Client.handleResponse({
                 res: res,
                 statusCode: 401,
                 data: {
@@ -73,7 +73,7 @@ export class MailController {
                 $set: { isVerified: true }
             }, { new: true })
 
-            res.redirect('http://localhost:4200/auth/login');
+            res.redirect('http://localhost:4200/auth/login')
 
         } catch (error) {
             Client.handleError({
