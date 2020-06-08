@@ -123,11 +123,25 @@ https://cid.ipfs.io/
 
 https://www.reddit.com/r/ipfs/comments/apoue6/help_understanding_links_in_ipfs/
 
+### Discuss IPFS
+
+https://discuss.ipfs.io/
+
+https://discuss.ipfs.io/t/accessing-all-my-growing-application-data-under-one-hash/3743
+
+https://discuss.ipfs.io/t/adding-a-file-while-preserving-filename-using-js-ipfs/2060/2
+
 ### IPNS
 
 https://docs.ipfs.io/concepts/ipns/
 
 https://discuss.ipfs.io/t/accessing-all-my-growing-application-data-under-one-hash/3743
+
+#### OrbitDB
+
+https://github.com/orbitdb/orbit-db/blob/master/GUIDE.md
+
+https://github.com/orbitdb/field-manual
 
 ### Frontend
 
@@ -168,6 +182,28 @@ https://blog.fleek.co/posts/fully-decentralized-apps-with-ens
 https://www.reddit.com/r/ipfs/comments/6pql5y/jsipfs_examples_and_tutorials/
 
 https://ethereum.stackexchange.com/questions/4531/how-to-add-a-file-to-ipfs-using-the-api
+
+https://simpleaswater.com/ipfs-cluster/
+
+https://simpleaswater.com/ipfs-cluster-twitter-pinbot/
+
+https://simpleaswater.com/youtube-on-ipfs/
+
+https://medium.com/simpleid-dev-tools/tutorial-how-to-build-an-ipfs-text-notification-app-d7e1a89c784b
+
+### Misc
+
+https://www.irjet.net/archives/V7/i4/IRJET-V7I4379.pdf
+
+https://www.reddit.com/r/ipfs/comments/8fozw6/discuss_how_to_construct_a_dynamic_website_with/
+
+https://www.reddit.com/r/ipfs/comments/b07zm1/radicle_a_decentralized_alternative_to_github/
+
+https://www.reddit.com/r/ethdev/comments/8a4ejc/anyone_using_ipfs_in_their_contracts/
+
+https://github.com/bitfalls/Town-Square
+
+https://www.reddit.com/r/ipfs/comments/apoue6/help_understanding_links_in_ipfs/
 
 ### Bounties
 
