@@ -7,14 +7,14 @@ export class Auth {
 
     static genAuthToken = (payload) => {
 
-        const token = jwt.sign(payload, 'SecretKey');
+        const token = jwt.sign(payload, process.env.JWT_SECRET);
         return token;
 
     }
 
     static verifyAuthToken = (token) => {
 
-        return jwt.verify(token, 'SecretKey')
+        return jwt.verify(token, process.env.JWT_SECRET)
 
     }
 
@@ -33,7 +33,10 @@ export class Auth {
 
         const payload = _.pick(user, ['id', 'isAdmin', 'isVerified'])
         const token = Auth.genAuthToken(payload)
-        return token
+        return {
+            token: token,
+            name: user.name
+        }
     }
 
 }

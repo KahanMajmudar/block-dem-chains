@@ -1,8 +1,7 @@
 import Web3 from 'web3'
-import * as bip39 from 'bip39'
 import hdkey from 'hdkey'
 import { privateToAddress } from 'ethereumjs-util'
-const infuraurl = 'https://ropsten.infura.io/v3/my-key'
+const infuraurl = process.env.INFURA_URL
 import * as Tx from 'ethereumjs-tx'
 const web3 = new Web3(
     new Web3.providers.HttpProvider(infuraurl)

@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 import Handlebars from 'handlebars'
-import { promises as fs } from 'fs';
+import { promises as fs } from 'fs'
 import path from 'path'
 import _  from 'lodash'
 import { User } from '../users/user_model'
@@ -14,11 +14,12 @@ export class MailController {
     constructor(){
 
         this.transporter = nodemailer.createTransport({
-            host: "smtp.mailtrap.io",
-            port: 2525,
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
-                user: "e4bddf076f94ee",
-                pass: "b3692275fe58c9"
+                user: process.env.MAIL_ADDRESS,
+                pass: process.env.MAIL_PASSWORD
             }
         });
 
@@ -33,7 +34,7 @@ export class MailController {
             const token = data.token
             const name = data.name
             const email = data.email
-            const url = `http://localhost:3000/mail/confirm/${token}`;
+            const url = `http://localhost:${process.env.PORT}/mail/confirm/${token}`;
 
             const hbs_file = await fs.readFile(path.resolve(__dirname, 'mail_views.hbs'), {encoding: 'utf-8'})
             const template = Handlebars.compile(hbs_file)
@@ -44,7 +45,7 @@ export class MailController {
 
             this.transporter.sendMail({
                 to: email,
-                from: 'platform.test@mail.com',
+                from: process.env.MAIL_ADDRESS,
                 subject: 'Confirm Mail',
                 html: updated_template
             })

@@ -11,10 +11,11 @@ export class AuthController {
             Client.handleHeaderResponse({
                 res: res,
                 headerName: 'x-auth-token',
-                headerData: result,
+                headerData: result.token,
                 data: {
                     loginStatus: true,
-                    message: 'Login Successful'
+                    message: 'Login Successful',
+                    name: result.name
                 }
             })
         } catch (error) {

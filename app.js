@@ -1,11 +1,13 @@
 import express, { json, urlencoded } from 'express'
 import helmet from 'helmet'
+import config from './config'
 import mongoose from 'mongoose'
 import { Client } from './services'
 import auth_routes from './middlewares/middleware_routes'
 import wallet_routes from './api/hdwallet/wallet_routes'
 import user_routes from './api/users/user_routes'
 import mail_routes from './api/mail/mail_routes'
+import ipfs_routes from './api/ipfs/ipfs_routes'
 import cors from 'cors'
 
 class Server {
@@ -15,7 +17,6 @@ class Server {
 		this.app = app
 		this.mongodb()
 		this.init()
-		// this.error = new ErrorService()
     }
 
 	init() {
@@ -31,24 +32,7 @@ class Server {
 		this.app.use('/wallet', wallet_routes)
 		this.app.use('/users', user_routes)
 		this.app.use('/mail', mail_routes)
-		// this.app.use( (err, req, res, next) => {
-		// 	const isOperationalError = this.error.handleError({
-		// 		res: res,
-		// 		err: err.description,
-		// 		data: {
-		// 			type: err.commonType
-		// 		}
-		// 	})
-		// 	if (!isOperationalError) {
-		// 		next(err)
-		// 	}
-		// })
-		// process.on('uncaughtException', err => {
-		// 	throw err
-		// })
-		// process.on('unhandledRejection', err => {
-		// 	throw err
-		// })
+		this.app.use('/ipfs', ipfs_routes)
 		this.app.listen(this.port, () => console.log(`Listening on port ${this.port}`))
 	}
 
@@ -58,7 +42,7 @@ class Server {
 		mongoose.set('useFindAndModify', false)
 		mongoose.set('useNewUrlParser', true)
 		mongoose.set('useUnifiedTopology', true)
-		mongoose.connect('mongodb://localhost/block_dem_chains')
+		mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`)
 			.then(() => console.log('MongoDB: Connection established succesfully!!'))
 			.catch(err => console.error(`MongoDB: ${err.message}`))
 	}

@@ -1,7 +1,7 @@
 import Web3 from 'web3'
 import abi from 'human-standard-token-abi'
 import { ETH } from '../eth';
-const infuraurl = 'https://ropsten.infura.io/v3/my-key'
+const infuraurl = process.env.INFURA_URL
 const web3 = new Web3(
     new Web3.providers.HttpProvider(infuraurl)
 )

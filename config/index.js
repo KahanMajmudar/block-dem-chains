@@ -1,2 +1,2 @@
-import { config } from 'dotenv'
+import { config } from 'dotenv-safe'
 config()

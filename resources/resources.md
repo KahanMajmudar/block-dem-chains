@@ -27,6 +27,10 @@ https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/
 
 https://tsh.io/blog/dependency-injection-in-node-js/
 
+https://stackoverflow.com/questions/55398634/is-the-mapping-in-solidity-of-one-key-on-multiple-structs-of-same-type-possible
+
+https://bitbucket.org/rhitchens2/soliditystoragepatterns/src/master/
+
 
 ### Github of DApps
 
@@ -109,6 +113,8 @@ https://www.npmjs.com/package/ipfs-mini
 
 https://github.com/mcchan1/eth-ipfs
 
+https://flyingzumwalt.gitbooks.io/decentralized-web-primer/
+
 https://hackernoon.com/a-beginners-guide-to-ipfs-20673fedd3f
 
 https://medium.com/@YondonFu/off-chain-computation-solutions-for-ethereum-developers-507b23355b17
@@ -122,6 +128,10 @@ https://z.cash/technology/zksnarks/
 https://cid.ipfs.io/
 
 https://www.reddit.com/r/ipfs/comments/apoue6/help_understanding_links_in_ipfs/
+
+https://medium.com/@rossbulat/introduction-to-ipfs-set-up-nodes-on-your-network-with-http-gateways-10e21ea689a4
+
+https://stackoverflow.com/questions/43165097/how-to-make-an-ipfs-daemon-into-a-public-gateway
 
 ### Discuss IPFS
 
@@ -150,6 +160,8 @@ https://docs.dapphero.io/
 https://webflow.com/
 
 https://bootstrapstudio.io/
+
+https://myhsts.org/tutorial-learn-how-to-build-frontend-blockchain-application-for-Ethereum-dapp-game-with-drizzle.php
 
 ### Articles
 
@@ -191,6 +203,10 @@ https://simpleaswater.com/youtube-on-ipfs/
 
 https://medium.com/simpleid-dev-tools/tutorial-how-to-build-an-ipfs-text-notification-app-d7e1a89c784b
 
+https://medium.com/@rossbulat/ipfs-with-react-loading-ipfs-assets-from-your-distributed-ipfs-gateways-fc601c8307bf
+
+https://www.reddit.com/r/ipfs/comments/8y3e25/embedding_jsipfs_nodes_into_websites/
+
 ### Misc
 
 https://www.irjet.net/archives/V7/i4/IRJET-V7I4379.pdf
@@ -204,6 +220,24 @@ https://www.reddit.com/r/ethdev/comments/8a4ejc/anyone_using_ipfs_in_their_contr
 https://github.com/bitfalls/Town-Square
 
 https://www.reddit.com/r/ipfs/comments/apoue6/help_understanding_links_in_ipfs/
+
+https://solidity.ethereum.org/2020/03/26/fallback-receive-split/
+
+https://ethereum.stackexchange.com/questions/22871/nested-structs-in-solidity
+
+https://jsfiddle.net/65kzj0sn/1/
+
+https://discuss.ipfs.io/t/files-get-files-add-is-not-a-function/5194
+
+https://github.com/ipfs/js-ipfs/blob/master/packages/ipfs/docs/MODULE.md
+
+https://docs.ipfs.io/reference/js/api/#working-with-ipfs-in-js
+
+https://github.com/ipfs/js-ipfs/tree/master/examples/exchange-files-in-browser
+
+https://github.com/orbitdb/field-manual/blob/master/code_examples/01_Tutorial/04_P2P_Part_1/index.html
+
+https://www.freecodecamp.org/news/how-to-build-an-ethereum-wallet-web-app-ac77dcaac573/
 
 ### Bounties
 
