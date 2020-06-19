@@ -1,6 +1,18 @@
-pragma solidity >=0.6.0 <0.7.0;
+// SPDX-License-Identifier: UNLICENSED
 
-contract DecentralizedStorage {
+pragma solidity >=0.6.0 <0.7.0;
+// import "@openzeppelin/contracts/access/Ownable.sol";
+import './Ownable.sol';
+
+contract DecentralizedStorage is Ownable{
+
+    struct Post {
+        string hash;
+        string title;
+        string tag;
+        string dataType;
+        uint creationTime;
+    }
 
     struct User {
         string name;
@@ -8,28 +20,20 @@ contract DecentralizedStorage {
         bool isUser;
     }
 
-    struct Post {
-        string hash;                    // QmcNVnFMBqyrYhVLojj2Y1tAyJZVzdhGTEp8U9kWTKr3zF
-        string title;
-        string dataType;
-        uint creationTime;
-    }
 
-    Post[] public posts;
+    Post[] posts;
 
     mapping (address => User) public userInfo;
     mapping (address => uint) postCounts;
     mapping (string => address) public postOwner;
+    mapping (address => Post[]) public postPerUser;
     mapping (string => bool) isExist;
 
-
+    event UserAdded(address);
     event PostAdded(uint, string, address);
     event Received(address, uint);
+    event FundsRemoved(address, uint);
 
-
-    constructor() public {
-
-    }
 
     receive() external payable {
         emit Received(msg.sender, msg.value);
@@ -40,13 +44,14 @@ contract DecentralizedStorage {
         require(!userInfo[msg.sender].isUser, 'Already a user');
         User memory user = User(_name, _bio, true);
         userInfo[msg.sender] = user;
+        emit UserAdded(msg.sender);
     }
 
-    function addPost(string memory _hash, string memory _title , string memory _type) public {
+    function addPost(string memory _hash, string memory _title, string memory _tag, string memory _type) public {
 
         require(userInfo[msg.sender].isUser, 'Please setup your profile');
         require(!isExist[_hash], 'Post already exists');
-        posts.push(Post(_hash, _title, _type, now));
+        postPerUser[msg.sender].push(Post(_hash, _title, _tag, _type, now));
         uint _id = posts.length - 1;
         isExist[_hash] = true;
         postCounts[msg.sender] += 1;
@@ -59,6 +64,11 @@ contract DecentralizedStorage {
     function totalPosts(address _address) public view returns (uint total){
         return postCounts[_address];
 
+    }
+
+    function collectFunds() public payable onlyOwner {
+        msg.sender.transfer(address(this).balance);
+        emit FundsRemoved(msg.sender, address(this).balance);
     }
 
 }
