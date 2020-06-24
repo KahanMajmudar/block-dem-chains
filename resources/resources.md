@@ -153,6 +153,16 @@ https://github.com/orbitdb/orbit-db/blob/master/GUIDE.md
 
 https://github.com/orbitdb/field-manual
 
+https://github.com/orbitdb/orbit-db/blob/master/API.md
+
+https://github.com/orbitdb/orbit-db/issues/315
+
+https://medium.com/@rossbulat/orbitdb-deploying-the-distributed-ipfs-database-with-react-79afa1a7fabb
+
+### GUN
+
+https://gun.eco/
+
 ### Frontend
 
 https://docs.dapphero.io/
@@ -207,6 +217,8 @@ https://medium.com/@rossbulat/ipfs-with-react-loading-ipfs-assets-from-your-dist
 
 https://www.reddit.com/r/ipfs/comments/8y3e25/embedding_jsipfs_nodes_into_websites/
 
+https://medium.com/3box/3box-research-comparing-distributed-databases-gun-orbitdb-and-scuttlebutt-2e3b5da34ef3
+
 ### Misc
 
 https://www.irjet.net/archives/V7/i4/IRJET-V7I4379.pdf
@@ -238,6 +250,8 @@ https://github.com/ipfs/js-ipfs/tree/master/examples/exchange-files-in-browser
 https://github.com/orbitdb/field-manual/blob/master/code_examples/01_Tutorial/04_P2P_Part_1/index.html
 
 https://www.freecodecamp.org/news/how-to-build-an-ethereum-wallet-web-app-ac77dcaac573/
+
+https://stackoverflow.com/questions/49985755/what-is-the-difference-between-orbitdb-based-on-ipfs-and-gun
 
 ### Bounties
 
