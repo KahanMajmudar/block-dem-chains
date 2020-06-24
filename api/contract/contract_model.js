@@ -1,4 +1,4 @@
-import Joi, { func } from '@hapi/joi'
+import Joi from '@hapi/joi'
 
 function validateAddUserInfo(user) {
 

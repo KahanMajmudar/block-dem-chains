@@ -1,6 +1,7 @@
 import Web3 from "web3"
 import json from '../../build/contracts/DecentralizedStorage.json'
 import { validateAddUserInfo, validateAddPost } from "./contract_model"
+import { TransactionController } from "../transactions/transaction_controller"
 
 const web3 = new Web3(
     new Web3.providers.WebsocketProvider('ws://127.0.0.1:9545')
@@ -11,8 +12,8 @@ export class DecentralizedStorageController {
 
     constructor() {
         this.tokenContract  = new web3.eth.Contract(json['abi'], '0x1F7ac3cE9B79F6B0c10968Cb3d7a5A680d335f27')
-        console.log(this.tokenContract)
         this.events = this.tokenContract.events
+        this.TxController = new TransactionController()
     }
 
     getBalance = async() => {
@@ -35,6 +36,9 @@ export class DecentralizedStorageController {
             const details = await this.tokenContract.methods.setProfile(userInfo.name, userInfo.bio).send({
                 from: userInfo.address
             })
+
+            details.description = "User Added"
+            await this.TxController.addTransaction(details)
             return details
         } catch (error) {
             throw error
@@ -56,7 +60,6 @@ export class DecentralizedStorageController {
     addPost = async(dataObject) => {
 
         try {
-            console.log(dataObject)
             const { error } = validateAddPost(dataObject)
             if (error) throw error
 
@@ -65,7 +68,9 @@ export class DecentralizedStorageController {
                 gasPrice: web3.utils.toHex(web3.utils.toWei('2', 'Gwei')),
                 gasLimit: web3.utils.toHex('3000000')
             })
-            console.log(result)
+
+            result.description = "Post Added"
+            await this.TxController.addTransaction(result)
             return result
 
         } catch (error) {

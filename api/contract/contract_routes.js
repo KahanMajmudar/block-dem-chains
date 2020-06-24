@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import { DecentralizedStorage } from './contract'
-import { string } from '@hapi/joi'
 const router = Router()
 const storage = new DecentralizedStorage()
 

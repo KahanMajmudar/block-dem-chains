@@ -5,7 +5,7 @@
 	"Addresses": {
 		"API": "/ip4/127.0.0.1/tcp/5001",
 		"Announce": [],
-		"Gateway": "/ip4/127.0.0.1/tcp/8080",
+		"Gateway": "/ip4/127.0.0.1/tcp/8081",
 		"NoAnnounce": [],
 		"Swarm": [
 			"/ip4/0.0.0.0/tcp/4001",
@@ -14,11 +14,11 @@
 	},
 	"AutoNAT": {},
 	"Bootstrap": [
-		"/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt",
-		"/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ",
 		"/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN",
 		"/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa",
-		"/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb"
+		"/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb",
+		"/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt",
+		"/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ"
 	],
 	"Datastore": {
 		"BloomFilterSize": 0,
@@ -56,8 +56,7 @@
 	"Discovery": {
 		"MDNS": {
 			"Enabled": true,
-			"Interval": 10,
-			"enabled": true
+			"Interval": 10
 		}
 	},
 	"Experimental": {
@@ -76,13 +75,18 @@
 			"Access-Control-Allow-Headers": [
 				"X-Requested-With",
 				"Range",
-				"User-Agent"
+				"User-Agent",
+				"Access-Control-Expose-Headers"
 			],
 			"Access-Control-Allow-Methods": [
-				"GET"
+				"GET",
+				"POST"
 			],
 			"Access-Control-Allow-Origin": [
 				"*"
+			],
+			"X-Special-Header": [
+				"Access-Control-Expose-Headers: Ipfs-Hash"
 			]
 		},
 		"NoDNSLink": false,
@@ -90,10 +94,10 @@
 		"PathPrefixes": [],
 		"PublicGateways": null,
 		"RootRedirect": "",
-		"Writable": false
+		"Writable": true
 	},
 	"Identity": {
-		"PeerID": "QmV4Ro6wP5xzwzECwuzAeUv5AXshKpFex1wpDR8HVrtEB7"
+		"PeerID": "QmcrEbzmi6jeUUaB5wLXyYRqpwJMEyFf6w2QDWwnZw1NnB"
 	},
 	"Ipns": {
 		"RecordLifetime": "",

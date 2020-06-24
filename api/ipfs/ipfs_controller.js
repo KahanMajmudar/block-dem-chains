@@ -1,38 +1,46 @@
-// import { promises as fs } from 'fs'
-// import * as path from 'path'
-// import all from 'it-all'
-// import IpfsHttpClient from 'ipfs-http-client'
-// const IPFS = require('ipfs')
-// // const ipfs = IpfsHttpClient({ host: 'gateway.ipfs.io', port: 443, protocol: 'https' })
-// // const ipfs = IpfsHttpClient('/ip4/x.x.x.x/tcp/5001')
+const IPFS = require('ipfs')
+const OrbitDB = require('orbit-db')
 
-// export class IpfsController {
 
-//     postResource = async() => {
+export class IpfsController {
 
-//         try {
-//             const node = await IPFS.create()
-//             console.log(node)
-//             // const version = await node.version()
-//             // console.log('‘Version:’', version.version)
-//             const new_path = path.join(__dirname, '..', 'mail', 'bdc-logo.jpg')
-//             // console.log(new_path)
-//             console.log(await all(node.files.ls('/')))
-//             // const result = await all (node.files.read('QmcNVnFMBqyrYhVLojj2Y1tAyJZVzdhGTEp8U9kWTKr3zF'))
-//             console.log(result)
-//             // const file = await fs.readFile(new_path)
-//             // // const cid = await all(node.add(file))
-//             // await node.files.mkdir('/' + 'logo')
-//             // console.log('MKDIR done............................')
-//             // const cid = await (node.files.write('/' + 'logo', Buffer.from('Hello World!')))
-//             // console.log(cid)
-//             await node.stop()
-//         } catch (error) {
-//             // console.log(error)
-//             console.trace(error)
+    createDb = async() => {
 
-//         }
-//     }
+        try {
+            const ipfsOptions = {
+                EXPERIMENTAL: {
+                  pubsub: true
+                }
+            }
 
-// }
+            const ipfs = await IPFS.create(ipfsOptions)
+            // console.log(await ipfs.id())
+            const orbitdb = await OrbitDB.createInstance(ipfs)
+            // console.log(orbitdb)
+            // console.log(orbitdb.identity._publicKey.toString('hex'))
+            console.log(orbitdb.identity.id)
+
+            const db = await orbitdb.create('test', 'keyvalue',{
+                overwrite: true,
+                replicate: true,
+                accessController: {
+                    type: 'ipfs',
+                    write: ['*']
+                }
+            })
+
+            await db.access.grant('write', orbitdb.identity.id)
+            // const db = await orbitdb.open('/orbitdb/zdpuB2ksoCk8RATvEqEXLJYZQYuBj53YwcGZWMhhU8McBvXMA/bdc1')
+            await db.set('hello', 'world')
+            console.log(db.all)
+
+
+        } catch (error) {
+            console.trace(error)
+            process.exit(1)
+
+        }
+    }
+
+}
 
