@@ -7,7 +7,9 @@ import auth_routes from './middlewares/middleware_routes'
 import wallet_routes from './api/hdwallet/wallet_routes'
 import user_routes from './api/users/user_routes'
 import mail_routes from './api/mail/mail_routes'
+import ipfs_routes from './api/ipfs/ipfs_routes'
 import contract_routes from './api/contract/contract_routes'
+import tx_routes from './api/transactions/transaction_routes'
 import cors from 'cors'
 
 class Server {
@@ -33,6 +35,8 @@ class Server {
 		this.app.use('/users', user_routes)
 		this.app.use('/mail', mail_routes)
 		this.app.use('/contract', contract_routes)
+		this.app.use('/ipfs', ipfs_routes)
+		this.app.use('/tx', tx_routes)
 		this.app.listen(this.port, () => console.log(`Listening on port ${this.port}`))
 	}
 
