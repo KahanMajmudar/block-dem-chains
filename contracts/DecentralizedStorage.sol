@@ -21,8 +21,6 @@ contract DecentralizedStorage is Ownable{
     }
 
 
-    Post[] posts;
-
     mapping (address => User) public userInfo;
     mapping (address => uint) postCounts;
     mapping (string => address) public postOwner;
@@ -30,7 +28,7 @@ contract DecentralizedStorage is Ownable{
     mapping (string => bool) isExist;
 
     event UserAdded(address);
-    event PostAdded(uint, string, address);
+    event PostAdded(string, address);
     event Received(address, uint);
     event FundsRemoved(address, uint);
 
@@ -52,11 +50,10 @@ contract DecentralizedStorage is Ownable{
         require(userInfo[msg.sender].isUser, 'Please setup your profile');
         require(!isExist[_hash], 'Post already exists');
         postPerUser[msg.sender].push(Post(_hash, _title, _tag, _type, now));
-        uint _id = posts.length - 1;
         isExist[_hash] = true;
         postCounts[msg.sender] += 1;
         postOwner[_hash] = msg.sender;
-        emit PostAdded(_id, _hash, msg.sender);
+        emit PostAdded(_hash, msg.sender);
 
     }
 
