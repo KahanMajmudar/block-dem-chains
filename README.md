@@ -9,6 +9,8 @@ Devfolio's ETHIndia Online: Chain Runner
 
 ## Description
 
+The purpose of the project is to make a decentralized resource sharing platform aimed for college :school: /students :student:  who can share/use those resources :books: for acedamic purposes. The users need to register an account to use the services and can upload/view/download the resources. The resouces are stored on IPFS and are accessible to everyone based on the post's CID :postbox:. The users need to follow other users in order to view the content(to get post CIDs). Various metadata such as user data and CIDs are stored in smart contract and the main data is stored in mongodb. :smile:
+
 ## Getting Started
 
 ### Prerequisites
@@ -53,5 +55,27 @@ Devfolio's ETHIndia Online: Chain Runner
 - Start the server `npm start`.
 - Voila! the server's up and running. Check the status of the server by going to the port mentioned in the `.env` file via localhost. Eg. `http://127.0.0.1:3000` :+1:.
 
+## Specifications
 
+### Node.js Base Server
+
+This backend server is made using Node.js and provides the connectivity to our [Frontend Repo](https://github.com/KahanMajmudar/block-dem-chains-frontend). The details to connect them are mentioned in the [README.md](https://github.com/KahanMajmudar/block-dem-chains-frontend/blob/master/README.md) of our frontend repository.
+
+### Smart Contract
+
+We're using Smart Contract to save the Post data corresponding to each User.
+
+Contract Attributes
+- CID (Content-Address Identifiers)
+- Type (of file)
+- Title (of Post)
+- Tag (of Post)
+- creation_time
+
+### User & Transaction Management
+
+The server uses MongoDB at the server side to keep track of the users and their corresponding Transactions which can be seen by going in the `View Transactions` Tab in our Frontend.
+### Mail Support - Authentication/Authorization
+
+The server is capable of authorising a user using their email address and provide them a verification link.
 
