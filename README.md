@@ -31,7 +31,7 @@ The purpose of the project is to make a decentralized resource sharing platform 
 - Install truffle
 
   `npm i truffle -g`
-- Install [MetaMask Plugin](https://metamask.io/download.html) for your Browser/Device.
+- Install [MetaMask Plugin](https://metamask.io/download.html) :fox_face: for your Browser/Device.
 
 
 ### How to get server started
@@ -45,9 +45,9 @@ The purpose of the project is to make a decentralized resource sharing platform 
 - Go to the cloned Repository and execute below mentioned steps.
   1) `truffle develop`
   2) Copy the Localhost Address from the output after executing above command. Eg. `http://127.0.0.1:9545`
-  3) Open your Metamask Plugin -> Top Right circle -> Settings -> Networks -> Add Network
+  3) Open your Metamask Plugin :fox_face: -> Top Right circle -> Settings -> Networks -> Add Network
   4) Mention `Name` of the network. Eg. `localhost` and Mention your Localhost address copied in Step ii in `New RPC URL` 
-  5) Goto Metamask Plugin -> Top Right Circle -> Import Account -> Paste your Private Key which is present in the output of the Step i.
+  5) Goto Metamask Plugin :fox_face: -> Top Right Circle -> Import Account -> Paste your Private Key which is present in the output of the Step i.
 
 - Open New Terminal and execute below mentioned steps.
   1) `truffle migrate`
