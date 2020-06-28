@@ -1,4 +1,9 @@
 # block-dem-chains
+
+<p align="center">
+  <img src="bdc-logo.jpg"/>
+</p>
+
 Devfolio's ETHIndia Online: Chain Runner
 
 ## Team Members
