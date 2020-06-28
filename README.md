@@ -9,7 +9,7 @@ Devfolio's ETHIndia Online: Chain Runner
 
 ## Description
 
-The purpose of the project is to make a decentralized resource sharing platform aimed for college :school: /students :student:  who can share/use those resources :books: for acedamic purposes. The users need to register an account to use the services and can upload/view/download the resources. The resouces are stored on IPFS and are accessible to everyone based on the post's CID :postbox:. The users need to follow other users in order to view the content(to get post CIDs). Various metadata such as user data and CIDs are stored in smart contract and the main data is stored in mongodb. :smile:
+The purpose of the project is to make a decentralized resource sharing platform aimed for college :school: /students :student:  who can share/use those resources :books: for acedamic purposes. The users need to register an account to use the services and can upload/view/download the resources. The resouces are stored on IPFS and are accessible to everyone based on the post's CID :postbox:. The users need to follow other users in order to view the content(to get post CIDs). The users can search other users by entering the users' addresses and follow them. Various metadata such as user data and CIDs are stored in smart contract and the main data is stored in mongodb. :smile:
 
 ## Getting Started
 
