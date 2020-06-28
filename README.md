@@ -11,7 +11,7 @@ Devfolio's ETHIndia Online: Chain Runner
 
 ## Getting Started
 
-### How to get server started
+### Prerequisites
 
 - Install Node
   - macOS
@@ -25,6 +25,10 @@ Devfolio's ETHIndia Online: Chain Runner
 
   `npm i truffle -g`
 - Install [MetaMask Plugin](https://metamask.io/download.html) for your Browser/Device.
+
+
+### How to get server started
+
 - Notice `.env.example` file in the repo.
   - Make a new file using `touch .env` (Linux implementation). Your implementation may vary based on OS :smile:. 
   - Fill up the Details as present in the `.env.example` in the newly created `.env` file.
