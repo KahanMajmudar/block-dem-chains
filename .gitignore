@@ -2,3 +2,5 @@
 .vscode
 .env
 node_modules/
+new_database
+orbitdb

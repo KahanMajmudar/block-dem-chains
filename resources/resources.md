@@ -119,6 +119,8 @@ https://hackernoon.com/a-beginners-guide-to-ipfs-20673fedd3f
 
 https://medium.com/@YondonFu/off-chain-computation-solutions-for-ethereum-developers-507b23355b17
 
+https://medium.com/pinata/how-to-keep-your-ipfs-nodes-connected-and-ensure-fast-content-discovery-7d92fb23da46
+
 https://github.com/tooploox/ipfs-eth-database
 
 https://www.devteam.space/blog/how-to-a-create-a-blockchain-based-social-media-platform-for-bloggers/
@@ -132,6 +134,8 @@ https://www.reddit.com/r/ipfs/comments/apoue6/help_understanding_links_in_ipfs/
 https://medium.com/@rossbulat/introduction-to-ipfs-set-up-nodes-on-your-network-with-http-gateways-10e21ea689a4
 
 https://stackoverflow.com/questions/43165097/how-to-make-an-ipfs-daemon-into-a-public-gateway
+
+https://codepen.io/konsumer/pen/xqNBJX?editors=0010
 
 ### Discuss IPFS
 
@@ -158,6 +162,20 @@ https://github.com/orbitdb/orbit-db/blob/master/API.md
 https://github.com/orbitdb/orbit-db/issues/315
 
 https://medium.com/@rossbulat/orbitdb-deploying-the-distributed-ipfs-database-with-react-79afa1a7fabb
+
+https://gist.github.com/peterhuba/74d9a8d9c9b1f89e057d1e359502bf8a
+
+https://github.com/orbitdb/orbit-db/blob/master/examples/browser/example.js
+
+https://www.gitmemory.com/issue/orbitdb/orbit-db/601/481980311
+
+https://devfolio.co/submissions/omniether
+
+https://github.com/orbitdb/orbit-db/blob/master/FAQ.md#database-replication-is-not-working-why
+
+https://github.com/orbitdb/field-manual/issues/64
+
+https://github.com/orbitdb/awesome-orbitdb
 
 ### GUN
 
@@ -252,6 +270,8 @@ https://github.com/orbitdb/field-manual/blob/master/code_examples/01_Tutorial/04
 https://www.freecodecamp.org/news/how-to-build-an-ethereum-wallet-web-app-ac77dcaac573/
 
 https://stackoverflow.com/questions/49985755/what-is-the-difference-between-orbitdb-based-on-ipfs-and-gun
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04#prerequisites
 
 ### Bounties
 
