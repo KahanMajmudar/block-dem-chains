@@ -11,15 +11,15 @@ import ipfs_routes from './api/ipfs/ipfs_routes'
 import contract_routes from './api/contract/contract_routes'
 import tx_routes from './api/transactions/transaction_routes'
 import cors from 'cors'
-// import IPFS from 'ipfs'
-// import OrbitDB from 'orbit-db'
+import IPFS from 'ipfs'
+import OrbitDB from 'orbit-db'
 
 class Server {
 
 	constructor(port, app) {
 		this.port = port
 		this.app = app
-		// this.orbitdb()
+		this.orbitdb()
 		this.mongodb()
 		this.init()
     }
@@ -54,43 +54,50 @@ class Server {
 			.catch(err => console.error(`MongoDB: ${err.message}`))
 	}
 
-	// async orbitdb() {
+	async orbitdb() {
 
-	// 	try {
-	// 		const ipfsOptions = {
-	// 		  EXPERIMENTAL: {
-	// 			pubsub: true
-	// 		  }
-	// 		};
+		try {
+			const ipfsOptions = {
+				EXPERIMENTAL: {
+					pubsub: true
+				},
+				relay: {
+					enabled: true, // enable circuit relay dialer and listener
+					hop: {
+					  enabled: true // enable circuit relay HOP (make this node a relay)
+					}
+				},
+				repo: `./${process.env.IPFS_REPO}`
+			};
 
-	// 		const ipfs = await IPFS.create();
-	// 		const orbitdb = await OrbitDB.createInstance(ipfs, {
-	// 			directory: './database'
-	// 		});
-	// 		console.log(orbitdb.identity.id);
+			const ipfs = await IPFS.create();
+			const orbitdb = await OrbitDB.createInstance(ipfs, {
+				directory: `./${process.env.ORBITDB_REPO}`
+			});
+			console.log(orbitdb.identity.id);
 
-	// 		const db = await orbitdb.create("test", "keyvalue", {
-	// 		  overwrite: true,
-	// 		  replicate: true,
-	// 		  accessController: {
-	// 			  type: "ipfs",
-	// 			  write: ["*"]
-	// 		  }
-	// 		});
-	// 		console.log(db.address.toString())
+			const db = await orbitdb.create(`${process.env.ORBITDB_NAME}`, "keyvalue", {
+			  overwrite: true,
+			  replicate: true,
+			  accessController: {
+				  type: "ipfs",
+				  write: ["*"]
+			  }
+			});
+			console.log(db.address.toString())
 
-	// 		await db.put("hello", "world")
-	// 		await db.put("orbitdb", "maybe")
-	// 		console.log(db.all)
+			await db.put("hello", "world")
+			await db.put("orbitdb", "maybe")
+			console.log(db.all)
 
-	// 		await db.close()
+			// await db.close()
 
-	// 	} catch (error) {
-	// 		console.trace(error);
-	// 		process.exit(1);
-	// 	}
+		} catch (error) {
+			console.trace(error);
+			process.exit(1);
+		}
 
-	// }
+	}
 }
 
 const app = express()
