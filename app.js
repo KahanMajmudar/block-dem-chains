@@ -1,16 +1,19 @@
 import express, { json, urlencoded } from 'express'
 import helmet from 'helmet'
 import config from './config'
-import mongoose from 'mongoose'
+// import mongoose from 'mongoose'
 import { Client } from './services'
 import auth_routes from './middlewares/middleware_routes'
-import wallet_routes from './api/hdwallet/wallet_routes'
+// import wallet_routes from './api/hdwallet/wallet_routes'
 import user_routes from './api/users/user_routes'
 import mail_routes from './api/mail/mail_routes'
 import ipfs_routes from './api/ipfs/ipfs_routes'
 import contract_routes from './api/contract/contract_routes'
 import tx_routes from './api/transactions/transaction_routes'
 import cors from 'cors'
+import admin from 'firebase-admin';
+import serviceAccount from './block-dem-chains-firebase.json';
+
 // import IPFS from 'ipfs'
 // import OrbitDB from 'orbit-db'
 
@@ -20,13 +23,14 @@ class Server {
 		this.port = port
 		this.app = app
 		// this.orbitdb()
-		this.mongodb()
+		//this.mongodb()
+		this.firebase()
 		this.init()
-    }
+	}
 
 	init() {
-        this.app.use(json())
-        this.app.use(urlencoded({ extended: true }))
+		this.app.use(json())
+		this.app.use(urlencoded({ extended: true }))
 		this.app.use(helmet())
 		this.app.use(cors())
 		this.app.get('/', (req, res) => Client.handleResponse({
@@ -34,7 +38,7 @@ class Server {
 			data: 'Yay!!, it\'s working'
 		}))
 		this.app.use('/auth', auth_routes)
-		this.app.use('/wallet', wallet_routes)
+		// this.app.use('/wallet', wallet_routes)
 		this.app.use('/users', user_routes)
 		this.app.use('/mail', mail_routes)
 		this.app.use('/contract', contract_routes)
@@ -43,16 +47,28 @@ class Server {
 		this.app.listen(this.port, () => console.log(`Listening on port ${this.port}`))
 	}
 
-	mongodb(){
+	firebase() {
+		//Firebase configuration
 
-		mongoose.set('useCreateIndex', true)
-		mongoose.set('useFindAndModify', false)
-		mongoose.set('useNewUrlParser', true)
-		mongoose.set('useUnifiedTopology', true)
-		mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`)
-			.then(() => console.log('MongoDB: Connection established succesfully!!'))
-			.catch(err => console.error(`MongoDB: ${err.message}`))
+		admin.initializeApp({
+			credential: admin.credential.cert(serviceAccount),
+			databaseURL: `${process.env.firebase_database_url}`
+		})
+
+		const database = admin.firestore();
+		database.settings({ ignoreUndefinedProperties: true });
 	}
+
+	// mongodb(){
+
+	// 	mongoose.set('useCreateIndex', true)
+	// 	mongoose.set('useFindAndModify', false)
+	// 	mongoose.set('useNewUrlParser', true)
+	// 	mongoose.set('useUnifiedTopology', true)
+	// 	mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`)
+	// 		.then(() => console.log('MongoDB: Connection established succesfully!!'))
+	// 		.catch(err => console.error(`MongoDB: ${err.message}`))
+	// }
 
 	// async orbitdb() {
 

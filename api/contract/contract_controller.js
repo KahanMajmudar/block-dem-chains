@@ -11,7 +11,7 @@ const web3 = new Web3(
 export class DecentralizedStorageController {
 
     constructor() {
-        this.tokenContract  = new web3.eth.Contract(json['abi'], '0x1F7ac3cE9B79F6B0c10968Cb3d7a5A680d335f27')
+        this.tokenContract  = new web3.eth.Contract(json['abi'], '0xa254d62856EdCe805cd8D6D2d660107A283Fe844')
         this.events = this.tokenContract.events
         this.TxController = new TransactionController()
     }

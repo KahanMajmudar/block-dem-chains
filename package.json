@@ -63,7 +63,8 @@
     "nodemon": "^2.0.4",
     "orbit-db": "^0.24.2",
     "truffle-flattener": "^1.4.4",
-    "web3": "^1.2.8"
+    "web3": "^1.2.8",
+    "firebase-admin": "9.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",

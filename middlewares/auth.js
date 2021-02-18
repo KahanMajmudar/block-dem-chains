@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken'
 import { User, validate, validateLogin } from '../api/users/user_model'
 import bcrypt from 'bcryptjs'
 import _ from 'lodash'
+import admin from 'firebase-admin'
 
 export class Auth {
 
@@ -20,16 +21,26 @@ export class Auth {
 
     login = async (userObject) => {
 
-        const {error} = validateLogin(userObject);
-        if(error) throw new Error(error.details[0].message);
+        const db = admin.firestore()
+        const { error } = validateLogin(userObject);
+        if (error) throw new Error(error.details[0].message);
 
-        const user = await User.findOne({email: userObject.email}).select('+password');
-        if(!user) throw new Error('Email doesn\'t exist!!')
+        const userQuerySnap = await db.collection('users').where('email', '==', userObject.email).get()
+        let user = "";
+        userQuerySnap.docs.forEach(doc => {
+            if (!doc.exists) {
+                throw new Error('Email doesn\'t exist!!')
+            }
+            else {
+                user = doc.data()
+            }
+        })
+
+        if (!user.isVerified) throw new Error('Please confirm your email!!')
 
         const passValid = await bcrypt.compare(userObject.password, user.password);
-        if(!passValid) throw new Error('Invalid Password, Try again!!');
+        if (!passValid) throw new Error('Invalid Password, Try again!!');
 
-        if(!user.isVerified) throw new Error('Please confirm your email!!')
 
         const payload = _.pick(user, ['id', 'isAdmin', 'isVerified'])
         const token = Auth.genAuthToken(payload)

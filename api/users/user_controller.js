@@ -1,9 +1,11 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 import _ from 'lodash'
-import { User, validate } from './user_model'
+import { validate } from './user_model'
 import { MailController } from '../mail/mail_controller'
 import { Auth } from '../../middlewares/auth'
+import admin from 'firebase-admin'
+import { doc } from 'prettier'
 
 
 export class UserController {
@@ -11,14 +13,14 @@ export class UserController {
     constructor() {
 
         this.user
-        this.User = User
+        // this.User = User
     }
 
-    viewUser =  async () => {
+    viewUser = async () => {
 
         const result = await this.User.find({}).select('+name')
 
-        if(!result) return ('No documents found!!')
+        if (!result) return ('No documents found!!')
 
         return result
 
@@ -26,38 +28,64 @@ export class UserController {
 
     viewUserid = async (userId) => {
 
-        if(!mongoose.Types.ObjectId.isValid(userId)){
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
             return ('ID Not valid!!')
         }
 
         const result = await this.User.findById(userId);
-        if(!result) return ('User not found!!');
+        if (!result) return ('User not found!!');
 
         return result
     }
 
-    createUser  = async(userObject) =>{
+    createUser = async (userObject) => {
 
-        const { error } =  validate(userObject);
-        if(error) return (error.details[0].message);
+        const db = admin.firestore()
+        const { error } = validate(userObject);
+        if (error) return (error.details[0].message);
 
-        let User = await this.User.findOne({email: userObject.email});
-        if(User){
-            throw new Error('User already exist!!')
-        }
 
-        this.user = new this.User(_.pick(userObject, ['name', 'email', 'password']));
+        // db.collection('users').where('email', '==', userObject.email)
+        //     .get()
+        //     .then((result) => {
+        //         result.docs.forEach((doc) => {
+        //             if (doc.exists) {
+        //                 throw new Error('User already exist!!')
+        //             }
+        //         })
+        //     })
+        const querySnap = await db.collection('users').where('email', '==', userObject.email).get()
+        querySnap.docs.forEach(doc => {
+            if (doc.exists) throw new Error('USer exists!!')
+        })
 
         const salt = await bcrypt.genSalt(10);
-        this.user.password = await bcrypt.hash(this.user.password, salt);
-        await this.user.save();
-        const result = _.pick(this.user, ['_id','name', 'email'])
+        const encryptedPassword = await bcrypt.hash(userObject.password, salt);
 
-        const payload = _.pick(this.user, ['_id'])
+        const userFirebase = {
+            name: userObject.name,
+            email: userObject.email,
+            password: encryptedPassword,
+            isAdmin: false,
+            isVerified: false
+        }
+
+        const docRef = await db.collection('users').add(userFirebase)
+        const result = {
+            id: docRef.id,
+            name: userFirebase.name,
+            email: userFirebase.email
+        }
+
+        const payload = {
+            id: docRef.id
+        }
+
+
         const token = Auth.genAuthToken(payload);
         const data = {
-            name: this.user.name,
-            email: this.user.email,
+            name: userFirebase.name,
+            email: userFirebase.email,
             token: token
         }
 
@@ -70,7 +98,7 @@ export class UserController {
 
     updateUser = async (userId, userObject) => {
 
-        if(!mongoose.Types.ObjectId.isValid(userId)){
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
             return ('ID Not valid!!')
         }
 
@@ -81,7 +109,7 @@ export class UserController {
             $set: _.pick(userObject, ['name', 'email', 'password'])
         }, { new: true })
 
-        if(!result) return ('ID doesn\'t exist!!')
+        if (!result) return ('ID doesn\'t exist!!')
 
         return result
 
@@ -89,13 +117,13 @@ export class UserController {
 
     deleteUser = async (userId) => {
 
-        if(!mongoose.Types.ObjectId.isValid(userId)){
-            return('ID Not valid!!')
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return ('ID Not valid!!')
         }
 
         const result = await this.User.findByIdAndDelete(userId);
 
-        if(!result) return ('ID doesn\'t exist!!');
+        if (!result) return ('ID doesn\'t exist!!');
 
         return result
 
