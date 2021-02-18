@@ -5,7 +5,6 @@ import { validate } from './user_model'
 import { MailController } from '../mail/mail_controller'
 import { Auth } from '../../middlewares/auth'
 import admin from 'firebase-admin'
-import { doc } from 'prettier'
 
 
 export class UserController {
@@ -13,29 +12,18 @@ export class UserController {
     constructor() {
 
         this.user
-        // this.User = User
-    }
-
-    viewUser = async () => {
-
-        const result = await this.User.find({}).select('+name')
-
-        if (!result) return ('No documents found!!')
-
-        return result
-
     }
 
     viewUserid = async (userId) => {
 
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-            return ('ID Not valid!!')
-        }
+        const db = admin.firestore()
 
-        const result = await this.User.findById(userId);
-        if (!result) return ('User not found!!');
+        const result = await db.collection('users').doc(userId).get();
 
-        return result
+        if (!result.exists) return ({ "msg": 'No User found!!' })
+
+        return result.data()
+
     }
 
     createUser = async (userObject) => {
@@ -44,19 +32,9 @@ export class UserController {
         const { error } = validate(userObject);
         if (error) return (error.details[0].message);
 
-
-        // db.collection('users').where('email', '==', userObject.email)
-        //     .get()
-        //     .then((result) => {
-        //         result.docs.forEach((doc) => {
-        //             if (doc.exists) {
-        //                 throw new Error('User already exist!!')
-        //             }
-        //         })
-        //     })
         const querySnap = await db.collection('users').where('email', '==', userObject.email).get()
         querySnap.docs.forEach(doc => {
-            if (doc.exists) throw new Error('USer exists!!')
+            if (doc.data()) throw new Error('User exists!!')
         })
 
         const salt = await bcrypt.genSalt(10);
@@ -98,34 +76,37 @@ export class UserController {
 
     updateUser = async (userId, userObject) => {
 
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-            return ('ID Not valid!!')
-        }
+        const db = admin.firestore()
+
+        const result = await db.collection('users').doc(userId).get();
+
+        if (!result.exists) return ({ "msg": 'No User found!!' })
 
         const salt = await bcrypt.genSalt(10);
         userObject.password = await bcrypt.hash(userObject.password, salt);
 
-        const result = await this.User.findByIdAndUpdate(userId, {
-            $set: _.pick(userObject, ['name', 'email', 'password'])
-        }, { new: true })
+        const updatedResult = await db.collection('users').doc(userId).update({
+            ...userObject
+        })
 
-        if (!result) return ('ID doesn\'t exist!!')
+        if (!updatedResult) return ({ "msg": 'No User found!!' })
 
-        return result
-
+        return { "msg": "Updated Successfully!" }
     }
 
     deleteUser = async (userId) => {
 
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-            return ('ID Not valid!!')
-        }
+        const db = admin.firestore()
 
-        const result = await this.User.findByIdAndDelete(userId);
+        const result = await db.collection('users').doc(userId).get();
 
-        if (!result) return ('ID doesn\'t exist!!');
+        if (!result.exists) return ({ "msg": 'No User found!!' })
 
-        return result
+        const deletedResult = await db.collection('users').doc(userId).delete()
+
+        if (!deletedResult) return ('ID doesn\'t exist!!');
+
+        return { "msg": 'Deleted Successfully' }
 
     }
 

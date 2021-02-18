@@ -3,7 +3,7 @@ import { Client } from '../services'
 
 export class AuthController {
 
-    login = async(req, res) => {
+    login = async (req, res) => {
 
         try {
             const auth = new Auth()
@@ -31,7 +31,7 @@ export class AuthController {
 
         try {
             const token = req.header('x-auth-token');
-            if(!token) Client.handleResponse({
+            if (!token) return Client.handleResponse({
                 res: res,
                 statusCode: 401,
                 data: {
@@ -42,7 +42,7 @@ export class AuthController {
 
             const user = Auth.verifyAuthToken(token)
 
-            if(!user.isAdmin) Client.handleResponse({
+            if (!user.isAdmin) return Client.handleResponse({
                 res: res,
                 statusCode: 403,
                 data: {
@@ -65,7 +65,7 @@ export class AuthController {
 
         try {
             const token = req.header('x-auth-token');
-            if(!token) Client.handleResponse({
+            if (!token) return Client.handleResponse({
                 res: res,
                 statusCode: 401,
                 data: {
@@ -75,7 +75,7 @@ export class AuthController {
             })
             const user = Auth.verifyAuthToken(token)
 
-            if(!user.isVerified) Client.handleResponse({
+            if (!user.isVerified) return Client.handleResponse({
                 res: res,
                 statusCode: 403,
                 data: {
