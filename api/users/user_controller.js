@@ -110,4 +110,22 @@ export class UserController {
 
     }
 
+    searchByEmail = async (email) => {
+        var result;
+        const db = admin.firestore()
+
+        const query = await db.collection('users').where('email', '==', email).get()
+
+        query.docs.forEach(doc => {
+            result = {
+                email: doc.data().email,
+                name: doc.data().name,
+                // Will add Address later on....
+            }
+        })
+
+        return result
+
+    }
+
 }

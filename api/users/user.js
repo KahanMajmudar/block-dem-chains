@@ -7,7 +7,7 @@ export class User {
         this.controller = new UserController()
     }
 
-    viewAll = async(req, res) => {
+    viewAll = async (req, res) => {
 
         try {
             const result = await this.controller.viewUser()
@@ -24,7 +24,7 @@ export class User {
 
     }
 
-    viewUser = async(req, res) => {
+    viewUser = async (req, res) => {
 
         try {
             const result = await this.controller.viewUserid(req.params.id)
@@ -40,7 +40,7 @@ export class User {
         }
     }
 
-    createUser = async(req, res) => {
+    createUser = async (req, res) => {
 
         try {
             const result = await this.controller.createUser(req.body)
@@ -58,7 +58,7 @@ export class User {
 
     }
 
-    updateUser = async(req, res) => {
+    updateUser = async (req, res) => {
 
         try {
             const result = await this.controller.updateUser(req.params.id, req.body)
@@ -74,7 +74,7 @@ export class User {
         }
     }
 
-    deleteUser = async(req, res) => {
+    deleteUser = async (req, res) => {
 
         try {
             const result = await this.controller.deleteUser(req.params.id)
@@ -90,6 +90,39 @@ export class User {
         }
 
     }
+
+    searchByEmail = async (req, res) => {
+
+        try {
+            const result = await this.controller.searchByEmail(req.params.email)
+            Client.handleResponse({
+                res: res,
+                data: result
+            })
+        } catch (error) {
+            Client.handleError({
+                res: res,
+                err: error
+            })
+        }
+
+    }
+    // searchByName = async (req, res) => {
+
+    //     try {
+    //         const result = await this.controller.searchByName(req.params.name)
+    //         Client.handleResponse({
+    //             res: res,
+    //             data: result
+    //         })
+    //     } catch (error) {
+    //         Client.handleError({
+    //             res: res,
+    //             err: error
+    //         })
+    //     }
+
+    // }
 
 
 }

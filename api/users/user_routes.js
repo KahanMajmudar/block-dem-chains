@@ -10,5 +10,7 @@ router.post('/view/:id', authcontroller.user, user.viewUser)
 router.post('/create', user.createUser)
 router.post('/update/:id', authcontroller.user, user.updateUser)
 router.post('/delete/:id', authcontroller.admin, user.deleteUser)
+router.post('/search/email/:email', authcontroller.user, user.searchByEmail)
+// router.post('search/name/:name', authcontroller.user, user.searchByName)
 
 module.exports = router
