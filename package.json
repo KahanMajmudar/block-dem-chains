@@ -43,7 +43,7 @@
   "homepage": "https://github.com/KahanMajmudar/block-dem-chains#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "@openzeppelin/contracts": "^3.0.1",
+    "@openzeppelin/contracts": "^4.4.2",
     "bcryptjs": "^2.4.3",
     "bip32": "^2.0.5",
     "bip39": "^3.0.2",
